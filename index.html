@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="six columns" style="margin-top: 10%">
+        <input class="button-primary" type="submit" value="Click to get Lotto numbers" formaction="" onclick="window.location.href='{{ url_for( 'index') }}';">
+          <hr>
+          <h5> I developed this simple lotto number generator
+          to improve my skills with Python and the Flask framework.
+          The front end is Skeleton boilerplate which has been a
+          great introduction to HTML and CSS</h5>
+          <hr>
+
+
+      </div>
+       <div class="six columns" style="margin-top: 10%"><h2>Please, click the button to be given random lotto numbers</h2>
+
+<div class="numbers">
+           {% for item in random_int %}
+           <h1 style="display:inline;">{{ item }}</h1>
+           {% endfor %}
+
+           <h2>and your lucky stars are....</h2>
+           {% for item in lucky_stars %}
+           <h1 style="display:inline;">{{ item }}</h1>
+           {% endfor %}
+</div>
+           <div>
+               <br>
+            <h6>Previous numbers....</h6>
+            {%  for item in history[-2] %}
+            <h5 style="display:inline;">{{ item }}</h5>
+           {% endfor %}
+
+           <h6>Previous stars</h6>
+            {%  for item in lucky_history[-2] %}
+            <h5 style="display:inline;">{{ item }}</h5>
+           {% endfor %}
+
+
+
+
+       </div>
+
+
+
+       </div>
+    </div>
+  </div>
+{% endblock %}
